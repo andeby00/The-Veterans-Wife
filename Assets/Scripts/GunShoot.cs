@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
-    //[SerializeField] float damage = 10f;
+    [SerializeField] float damage = -1f;
     //[SerializeField] float range = 10f;
 
     [SerializeField] GameObject bullet;
@@ -24,15 +24,13 @@ public class GunShoot : MonoBehaviour
     [SerializeField] ParticleSystem flash;
     [SerializeField] TextMeshProUGUI ammoDisplay;
 
-
     // Update is called once per frame
     void Start()
     {
         _bulletsLeft = magazineSize;
         _readyToShoot = true;
     }
-
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -50,7 +48,7 @@ public class GunShoot : MonoBehaviour
             Reload();
         }
 
-        // if (_readyToShoot && _shooting && !_reloading && _bulletsLeft < 0)
+        // if (_readyToShoot && _shooting && !_reloading && _bulletsLeft < 0) // hvis vi vil reload med venstreklik når mag er tom
         // {
         //     Reload();
         // }
@@ -81,18 +79,11 @@ public class GunShoot : MonoBehaviour
         //if (Physics.Raycast(ray, out hit, 5f))
         if (Physics.Raycast(ray, out hit))
         {
-            // virker ikke som det skal, er baseret på kameraets hitreg i stedet for projectile hit 
-            // Enemy enemy = hit.transform.GetComponent<Enemy>();
-            // if (enemy != null)
-            // {
-            //     enemy.Die();
-            // }
-
-            targetPoint = hit.point;
+            targetPoint = hit.point; // dette har ogs problemer
         }
         else
         {
-            targetPoint = ray.GetPoint(75); // dette har ogs problemer
+            targetPoint = ray.GetPoint(75); 
         }
 
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
@@ -107,7 +98,7 @@ public class GunShoot : MonoBehaviour
         
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(camera.transform.up * upwardForce, ForceMode.Impulse);
-        currentBullet.AddComponent<BulletCollision>().Damage = 0f;
+        currentBullet.AddComponent<BulletCollision>().Damage = damage;
 
         Destroy(currentBullet, 1f);
         
@@ -125,8 +116,6 @@ public class GunShoot : MonoBehaviour
         {
             Invoke("Shoot", 60 / fireRateDuringBurst); // burst fire
         }
-
-        //Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range);
     }
 
     private void ResetShot()
