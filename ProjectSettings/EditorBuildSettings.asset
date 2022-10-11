@@ -6,6 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Space.unity
+    guid: 3ad063c35bae38943a118af85c45324f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 59681e859204ad84ca1e7459db805e73
+  - enabled: 1
+    path: Assets/Scenes/Desert Planet.unity
+    guid: 6c126421cd3b2b0468aec94cf74f2045
+  - enabled: 1
+    path: Assets/Scenes/Earth Planet.unity
+    guid: 98b276017fa8f974c91676e2b1f91922
+  - enabled: 1
+    path: Assets/Scenes/Frost Planet.unity
+    guid: 51d9305d3d241944f8d22af0d2459636
+  - enabled: 1
+    path: Assets/Scenes/Magma Planet.unity
+    guid: 84ff8b47397168341b88b29aad42227a
+  - enabled: 1
+    path: Assets/Scenes/Sand Planet.unity
+    guid: 41470d51fa8a8af44929e67bcc12f5c6
+  - enabled: 1
+    path: Assets/Scenes/Shop Planet.unity
+    guid: 1cb152037b7db6f4d9c7bd0b8c024f1b
+  - enabled: 1
+    path: Assets/Scenes/Slime Planet.unity
+    guid: 252b5b24666a54641895f8bbebb09aa0
   m_configObjects: {}
