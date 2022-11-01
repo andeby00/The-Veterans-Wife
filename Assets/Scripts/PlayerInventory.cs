@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] TextMeshProUGUI coinsText;
+    //[SerializeField] AudioSource coindSound;
+    int _coins = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.transform.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            _coins++;
+            coinsText.text = _coins + "$";
+            //coindSound.Play();
+        }
     }
 }

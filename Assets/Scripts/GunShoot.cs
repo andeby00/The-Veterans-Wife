@@ -55,11 +55,9 @@ public class GunShoot : MonoBehaviour
 
         if (_readyToShoot && _shooting && !_reloading && _bulletsLeft > 0)
         {
-            Debug.Log("xd");
             _bulletsShot = 0;
             
             Shoot();
-
         }
         
         if (ammoDisplay != null)
@@ -72,11 +70,10 @@ public class GunShoot : MonoBehaviour
         _readyToShoot = false;
 
         RaycastHit hit;
-        Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+        Ray ray = camera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
 
         Vector3 targetPoint;
         
-        //if (Physics.Raycast(ray, out hit, 5f))
         if (Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point; // dette har ogs problemer
@@ -107,7 +104,6 @@ public class GunShoot : MonoBehaviour
         
         if (_allowInvoke)
         {
-            Debug.Log( 60 / fireRate);
             Invoke("ResetShot", 60 / fireRate);
             _allowInvoke = false;
         }
