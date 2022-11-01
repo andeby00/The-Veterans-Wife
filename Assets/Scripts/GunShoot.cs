@@ -47,6 +47,11 @@ public class GunShoot : MonoBehaviour
         {
             Reload();
         }
+        
+        if (_reloading)
+        {
+            transform.Rotate(new Vector3 (-(1f / reloadTime) * 360f  * Time.deltaTime, 0, 0));
+        }
 
         // if (_readyToShoot && _shooting && !_reloading && _bulletsLeft < 0) // hvis vi vil reload med venstreklik når mag er tom
         // {
@@ -130,5 +135,6 @@ public class GunShoot : MonoBehaviour
     {
         _bulletsLeft = magazineSize;
         _reloading = false;
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 }
