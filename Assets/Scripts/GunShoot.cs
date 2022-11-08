@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunShoot : MonoBehaviour
@@ -12,7 +13,7 @@ public class GunShoot : MonoBehaviour
     [SerializeField] float fireRate, spread, reloadTime, fireRateDuringBurst; // Krav for fireRateDuringBurst: fireRateDuringBurst > fireRate * bulletsPerTap
     [SerializeField] int magazineSize = 8;
     [SerializeField] int bulletsPerTap = 1;
-    [SerializeField] bool automatic = false;
+    [SerializeField] bool automatic, explosive = false;
 
     int _bulletsLeft, _bulletsShot;
     
@@ -100,7 +101,8 @@ public class GunShoot : MonoBehaviour
         
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(camera.transform.up * upwardForce, ForceMode.Impulse);
-        currentBullet.AddComponent<BulletCollision>().Damage = damage;
+        currentBullet.GetOrAddComponent<BulletCollision>().Damage = damage;
+        currentBullet.GetComponent<BulletCollision>().Explosive = explosive;
 
         Destroy(currentBullet, 1f);
         
