@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+   
     private void Update()
     {
         //Check for sight and attack range
@@ -84,9 +85,13 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            GameObject gameObject = Instantiate(projectile, transform.position, Quaternion.identity);
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+            Destroy(gameObject, 5f);
+
+
             ///End of attack code
 
             alreadyAttacked = true;
@@ -117,3 +122,4 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }
+
