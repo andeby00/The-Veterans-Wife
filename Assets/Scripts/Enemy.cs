@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 100f;
     [SerializeField] GameObject coin;
+    [SerializeField] int min = 3;
+    [SerializeField] int max = 6;
 
     public void Hit(float amount)
     {
@@ -16,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         
-        for (int i = 0; i < new System.Random().Next(3,6); i++)
+        for (int i = 0; i < new System.Random().Next(min, max); i++)
         {
             GameObject currentCoin = Instantiate(coin, transform.position,Quaternion.Euler( Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360) ) );
             var currentRB = currentCoin.GetComponent<Rigidbody>();
