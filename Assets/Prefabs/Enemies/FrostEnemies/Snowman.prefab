@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 1709819006209835516}
   - component: {fileID: 1709819006209835518}
   - component: {fileID: 1709819006209835519}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Snowman
   m_TagString: Enemy
   m_Icon: {fileID: 0}

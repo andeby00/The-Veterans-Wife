@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Schema;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,12 +8,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject dude; 
     [SerializeField] GameObject brute;
     [SerializeField] Transform player;
+    [SerializeField] Transform enemies;
     
-    List<GameObject> _currentEnemies = new List<GameObject>();
     int _i = 0;
     Vector3 _localScale;
     
-    [SerializeField] float timeRemaining = 305;
+    [SerializeField] float timeRemaining = 300;
     [SerializeField] bool timerIsRunning = false;
     [SerializeField] TextMeshProUGUI timerDisplay;
 
@@ -66,13 +63,13 @@ public class EnemySpawner : MonoBehaviour
     void Spawn()
     {
         _i += 1;
-
-        if(_currentEnemies.Count > 100)
+        
+        if(enemies.childCount > 100)
         {
             Invoke(nameof(Spawn), 1f);
             return;
         }
-        
+
         switch (_i)
         {
             case <= 60:
@@ -80,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case <= 120:
                 SpawnX(dude, 2, 4);
-                SpawnX(brute, 1, 2);
+                SpawnX(brute, 0, 5); //1 2
                 break;
             case <= 180:
                 SpawnX(dude, 3, 6);
@@ -116,10 +113,8 @@ public class EnemySpawner : MonoBehaviour
             if((player.position - newPos).sqrMagnitude < 500)
                 continue;
             
-            var currentEnemy = Instantiate(x, newPos, Quaternion.identity );
+            var currentEnemy = Instantiate(x, newPos, Quaternion.identity, enemies);
             currentEnemy.GetComponent<EnemyAI>().player = player;
-            
-            _currentEnemies.Add(currentEnemy);
         }
     }
 

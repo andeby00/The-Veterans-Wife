@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO.Enumeration;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +20,8 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        healthDisplay.SetText(health + "");
+        
         coins = GlobalInventory.Instance.coins;
         coinsText.SetText(coins + "");
 
