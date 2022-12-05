@@ -14,30 +14,53 @@ public class BulletCollision : MonoBehaviour
     {   
         if (Explosive)
         {
-            Debug.Log("explosive true");
             var xd = Physics.OverlapSphere(gameObject.transform.position, ExplosionRadius, enemyLayer);
             foreach (var enemyCollider in xd)
             {
-                var enemy = enemyCollider.transform.GetComponent<EnemyAI>();
-
-                if (enemy != null)
+                Debug.Log("EEEE" + enemyCollider.gameObject.tag + " " + Damage);
+                if(enemyCollider.gameObject.CompareTag("Enemy"))
                 {
-                    enemy.TakeDamage(Damage);
+                    var enemy = enemyCollider.transform.GetComponent<EnemyAI>();
+
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(Damage);
+                    }
+                } 
+                else if (enemyCollider.gameObject.CompareTag("Player"))
+                {
+                    var player = enemyCollider.transform.GetComponent<PlayerInventory>();
+                    
+                    if (player != null)
+                    {
+                        player.TakeDamage(Damage);
+                    }
                 }
             }
             Destroy(gameObject);
         }
         else 
         {
-            Debug.Log("explosive false");
-            var enemy = other.transform.GetComponent<EnemyAI>();
-            
-            if (enemy != null)
+            if(other.gameObject.CompareTag("Enemy"))
             {
-                enemy.TakeDamage(Damage);
-                
+                var enemy = other.transform.GetComponent<EnemyAI>();
+
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(Damage);
+                }
+
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            else if (other.gameObject.CompareTag("Player"))
+            {
+                var player = other.transform.parent.GetComponent<PlayerInventory>();
+                    
+                if (player != null)
+                {
+                    player.TakeDamage(Damage);
+                }
+            }
         }
     }
 }

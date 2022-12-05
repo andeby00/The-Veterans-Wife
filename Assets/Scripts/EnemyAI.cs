@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
     public float shootForce = 10f;
+    public bool Explosive = false;
 
     //States
     public float sightRange, attackRange;
@@ -97,8 +98,8 @@ public class EnemyAI : MonoBehaviour
             ///Attack code here
             GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
             gameObject.transform.forward = player.position - attackPoint.position;
-            gameObject.GetOrAddComponent<BulletCollision>().Damage = -1f;
-            gameObject.GetComponent<BulletCollision>().Explosive = true;
+            gameObject.GetOrAddComponent<BulletCollision>().Damage = 30f;
+            gameObject.GetComponent<BulletCollision>().Explosive = Explosive;
             gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
 
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
@@ -126,7 +127,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
         health -= damage;
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0f);
     }
     private void DestroyEnemy()
     {

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpHeight = 10f;
     [SerializeField] CharacterController controller;
     [SerializeField] float gravity = -9.81f;
-    [SerializeField] TextMeshProUGUI velocityDiplay;
+    //[SerializeField] TextMeshProUGUI velocityDiplay;
 
     float _groundDistance = 0.1f;
     Vector3 _velocity;

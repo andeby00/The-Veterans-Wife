@@ -13,11 +13,13 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] new Camera camera;
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] TextMeshProUGUI ammoDisplay;
+    [SerializeField] TextMeshProUGUI healthDisplay;
 
     [SerializeField] Transform gunContainer;
         
     //[SerializeField] AudioSource coindSound;
     
+    [SerializeField] float health = 1000;
     [SerializeField] int coins = 0;
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins++;
-            coinsText.text = coins + "$";
+            coinsText.SetText(coins + "");
             //coindSound.Play();
         }
     }
@@ -47,7 +49,7 @@ public class PlayerInventory : MonoBehaviour
                 text.SetText("Press \"E\" to buy");
             }
 
-            if (Input.GetButtonDown("Fire2") && coins > x.price && hit.transform.CompareTag("BuyArea"))
+            if (Input.GetKeyDown(KeyCode.E) && coins > x.price && hit.transform.CompareTag("BuyArea"))
             {
                 coins -= x.price;
 
@@ -78,5 +80,12 @@ public class PlayerInventory : MonoBehaviour
         {
             text.SetText("");
         }
+
+    }
+    
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        healthDisplay.SetText(health + "");
     }
 }
