@@ -5022,7 +5022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ad4f564d4d5bb44be7291a3882b5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: -1
+  damage: 50
   bullet: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
   shootForce: 35
   upwardForce: 0
@@ -5032,7 +5032,7 @@ MonoBehaviour:
   fireRateDuringBurst: 0
   magazineSize: 8
   bulletsPerTap: 1
-  automatic: 1
+  automatic: 0
   explosive: 0
   camera: {fileID: 0}
   attackPoint: {fileID: 1561183864290028892}

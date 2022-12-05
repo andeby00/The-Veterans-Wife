@@ -82,7 +82,7 @@ public class GunShoot : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit))
         {
-            targetPoint = hit.point; 
+            targetPoint = hit.point;
         }
         else
         {

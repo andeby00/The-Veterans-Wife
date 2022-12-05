@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120479688}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0.58, y: 5.52, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -308,7 +308,9 @@ MonoBehaviour:
   camera: {fileID: 1220720888390200589}
   text: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  healthDisplay: {fileID: 0}
   gunContainer: {fileID: 8484782084191552879}
+  health: 1000
   coins: 500
 --- !u!4 &496965850 stripped
 Transform:
@@ -722,7 +724,6 @@ MonoBehaviour:
   jumpHeight: 1
   controller: {fileID: 8816914840098217826}
   gravity: -9.81
-  velocityDiplay: {fileID: 0}
 --- !u!33 &8816914840165719272
 MeshFilter:
   m_ObjectHideFlags: 0

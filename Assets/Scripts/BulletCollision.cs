@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
@@ -17,7 +14,6 @@ public class BulletCollision : MonoBehaviour
             var xd = Physics.OverlapSphere(gameObject.transform.position, ExplosionRadius, enemyLayer);
             foreach (var enemyCollider in xd)
             {
-                Debug.Log("EEEE" + enemyCollider.gameObject.tag + " " + Damage);
                 if(enemyCollider.gameObject.CompareTag("Enemy"))
                 {
                     var enemy = enemyCollider.transform.GetComponent<EnemyAI>();
