@@ -15,8 +15,8 @@ MonoBehaviour:
   KeybindingChecks:
   - keyCode: 0
     actions: 0
-  - keyCode: 0
-    actions: 0
+  - keyCode: 101
+    actions: 2
   - keyCode: 0
     actions: 0
   - keyCode: 0

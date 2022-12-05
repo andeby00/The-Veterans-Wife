@@ -20,10 +20,10 @@ public class GunShoot : MonoBehaviour
     bool _shooting, _readyToShoot, _reloading;
     bool _allowInvoke = true;
     
-    [SerializeField] new Camera camera;
+    [SerializeField] public new Camera camera;
     [SerializeField] Transform attackPoint;
     [SerializeField] ParticleSystem flash;
-    [SerializeField] TextMeshProUGUI ammoDisplay;
+    [SerializeField] public TextMeshProUGUI ammoDisplay;
 
     // Update is called once per frame
     void Start()
@@ -82,7 +82,7 @@ public class GunShoot : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit))
         {
-            targetPoint = hit.point; // dette har ogs problemer
+            targetPoint = hit.point; 
         }
         else
         {
