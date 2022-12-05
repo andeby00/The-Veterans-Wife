@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Coin
   - BuyArea
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
