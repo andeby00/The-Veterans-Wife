@@ -5,6 +5,7 @@ using System.IO.Enumeration;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -21,6 +22,27 @@ public class PlayerInventory : MonoBehaviour
     
     [SerializeField] float health = 1000;
     [SerializeField] int coins = 0;
+
+    private void Start()
+    {
+        coins = GlobalInventory.Instance.coins;
+        coinsText.SetText(coins + "");
+
+        var tempGunContainer = GlobalInventory.Instance.gunContainer;
+
+        var newGun = tempGunContainer.GetChild(0);
+        gunContainer.DetachChildren();
+                
+        newGun.SetParent(gunContainer);
+        newGun.localPosition = Vector3.zero;
+        newGun.localRotation = Quaternion.Euler(Vector3.zero);
+        newGun.localScale = Vector3.one;
+
+        var gunShoot = newGun.GetComponent<GunShoot>();
+        gunShoot.camera = camera;
+        gunShoot.ammoDisplay = ammoDisplay;
+        gunShoot.enabled = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +62,14 @@ public class PlayerInventory : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, 5f))
         {
+            if (hit.transform.CompareTag("Door")) 
+                text.SetText("Press \"E\" to Exit");
+            
+            if (Input.GetKeyDown(KeyCode.E) && hit.transform.CompareTag("Door")) {
+                SceneManager.LoadSceneAsync("Space");
+                SavePlayer();
+            }
+            
             var x = hit.transform.GetComponent<BuyableItem>();
             
             if (x == null) return;
@@ -74,18 +104,25 @@ public class PlayerInventory : MonoBehaviour
                 gunShoot.ammoDisplay = ammoDisplay;
 
                 Destroy(hit.transform.parent.gameObject);
+                
+                coinsText.SetText(coins + "");
             }
         }
         else
         {
             text.SetText("");
         }
-
     }
     
     public void TakeDamage(float damage)
     {
         health -= damage;
         healthDisplay.SetText(health + "");
+    }
+    
+    public void SavePlayer()
+    {
+        GlobalInventory.Instance.coins = coins;
+        gunContainer.GetChild(0).SetParent(GlobalInventory.Instance.gunContainer);
     }
 }

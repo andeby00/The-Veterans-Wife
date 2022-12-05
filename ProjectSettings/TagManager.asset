@@ -9,6 +9,7 @@ TagManager:
   - BuyArea
   - SpawnPoint
   - Rooms
+  - Door
   layers:
   - Default
   - TransparentFX

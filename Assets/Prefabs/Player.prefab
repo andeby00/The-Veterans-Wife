@@ -1241,6 +1241,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK47
       objectReference: {fileID: 0}
+    - target: {fileID: 926075052133063139, guid: eeab95f6d9cee6542b5dbcf01e1f4dd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 926075052133063140, guid: eeab95f6d9cee6542b5dbcf01e1f4dd7, type: 3}
       propertyPath: m_RootOrder
       value: 0

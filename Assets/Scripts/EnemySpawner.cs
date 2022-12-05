@@ -125,6 +125,7 @@ public class EnemySpawner : MonoBehaviour
 
     void PlanetEnd()
     {
-        SceneManager.LoadScene("Space");
+        player.GetComponent<PlayerInventory>().SavePlayer();
+        SceneManager.LoadSceneAsync("Space");
     }
 }
