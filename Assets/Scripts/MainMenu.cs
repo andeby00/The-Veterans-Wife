@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Space");
+        SceneManager.LoadScene("Frost Planet");
     }
 
     public void GoToSettingsMenu()
