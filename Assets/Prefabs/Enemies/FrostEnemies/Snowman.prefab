@@ -976,7 +976,7 @@ MonoBehaviour:
   walkPointRange: 10
   attackPoint: {fileID: 2810846337895977463}
   timeBetweenAttacks: 1.5
-  projectile: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
+  projectile: {fileID: 7464921680586502494, guid: 19bb8d93b786de545a635c461a351ea8, type: 3}
   shootForce: 10
   Explosive: 0
   sightRange: 2000
