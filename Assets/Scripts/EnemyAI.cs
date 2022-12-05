@@ -22,10 +22,11 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public float shootForce = 10f;
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    bool playerInSightRange, playerInAttackRange;
 
     private void Awake()
     {
@@ -88,7 +89,7 @@ public class EnemyAI : MonoBehaviour
             ///Attack code here
             GameObject gameObject = Instantiate(projectile, transform.position, Quaternion.identity);
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
             rb.AddForce(transform.up * 1f, ForceMode.Impulse);
             Destroy(gameObject, 5f);
 
