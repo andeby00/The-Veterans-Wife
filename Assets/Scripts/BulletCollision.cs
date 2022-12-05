@@ -6,48 +6,36 @@ using UnityEngine;
 public class BulletCollision : MonoBehaviour
 {
     public float Damage { get; set; }
-    public float ExplosionRadius { get; set; } = 3f; 
+    public float ExplosionRadius { get; set; } = 3f;
     public bool Explosive { get; set; }
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] public LayerMask enemyLayer;
 
     private void OnTriggerEnter(Collider other)
     {   
         if (Explosive)
         {
-            
+            Debug.Log("explosive true");
             var xd = Physics.OverlapSphere(gameObject.transform.position, ExplosionRadius, enemyLayer);
             foreach (var enemyCollider in xd)
             {
-                Enemy enemy = enemyCollider.transform.GetComponent<Enemy>();
-            
+                var enemy = enemyCollider.transform.GetComponent<EnemyAI>();
+
                 if (enemy != null)
                 {
-                    if (Damage == -1f)
-                    {
-                        enemy.Die();
-                    }
-                    else
-                    {
-                        enemy.Hit(Damage);
-                    }
+                    enemy.TakeDamage(Damage);
                 }
             }
             Destroy(gameObject);
         }
         else 
         {
-            Enemy enemy = other.transform.GetComponent<Enemy>();
+            Debug.Log("explosive false");
+            var enemy = other.transform.GetComponent<EnemyAI>();
             
             if (enemy != null)
             {
-                if (Damage == -1f)
-                {
-                    enemy.Die();
-                }
-                else
-                {
-                    enemy.Hit(Damage);
-                }
+                enemy.TakeDamage(Damage);
+                
             }
             Destroy(gameObject);
         }
