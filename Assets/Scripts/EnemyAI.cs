@@ -123,11 +123,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (damage == -1f)
         {
-            Invoke(nameof(DestroyEnemy), 0.5f);
+            DestroyEnemy();
             return;
         }
         health -= damage;
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0f);
+        if (health <= 0) DestroyEnemy();
     }
     private void DestroyEnemy()
     {
