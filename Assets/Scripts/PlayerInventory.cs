@@ -47,7 +47,7 @@ public class PlayerInventory : MonoBehaviour
                 text.SetText("Press \"E\" to buy");
             }
 
-            if (Input.GetButtonDown("Fire2") && coins > x.price && hit.transform.CompareTag("BuyArea"))
+            if (Input.GetKeyDown(KeyCode.E) && coins > x.price && hit.transform.CompareTag("BuyArea"))
             {
                 coins -= x.price;
 
