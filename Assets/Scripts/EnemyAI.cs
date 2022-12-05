@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+
     public float health;
 
     //Patroling
@@ -19,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float walkPointRange;
 
     //Attacking
+    [SerializeField] Transform attackPoint;
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
@@ -27,6 +30,11 @@ public class EnemyAI : MonoBehaviour
     //States
     public float sightRange, attackRange;
     bool playerInSightRange, playerInAttackRange;
+
+    // Coins
+    [SerializeField] GameObject coin;
+    [SerializeField] int min = 3;
+    [SerializeField] int max = 6;
 
     private void Awake()
     {
@@ -87,10 +95,15 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            GameObject gameObject = Instantiate(projectile, transform.position, Quaternion.identity);
+            GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
+            gameObject.transform.forward = player.position - attackPoint.position;
+            gameObject.GetOrAddComponent<BulletCollision>().Damage = -1f;
+            gameObject.GetComponent<BulletCollision>().Explosive = true;
+            gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
+
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
-            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+            // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
             Destroy(gameObject, 5f);
 
 
@@ -105,15 +118,26 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        if (damage == -1f)
+        {
+            Invoke(nameof(DestroyEnemy), 0.5f);
+            return;
+        }
         health -= damage;
-
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+
+        for (int i = 0; i < new System.Random().Next(min, max); i++)
+        {
+            GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+            var currentRB = currentCoin.GetComponent<Rigidbody>();
+            currentRB.AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+        }
     }
 
     private void OnDrawGizmosSelected()

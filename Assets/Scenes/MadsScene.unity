@@ -616,6 +616,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214618237}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &287314469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2810846337895977463, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
+  m_PrefabInstance: {fileID: 1709819006104198063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299622170
 GameObject:
   m_ObjectHideFlags: 0
@@ -8730,8 +8735,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1709819006209835518, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 287314469}
+    - target: {fileID: 1709819006209835518, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
       propertyPath: attackRange
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709819006209835518, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1709819006209835519, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
       propertyPath: m_Enabled
@@ -8744,6 +8757,10 @@ PrefabInstance:
     - target: {fileID: 1709819007128301713, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 19.75047
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810846337895977463, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
@@ -8788,7 +8805,7 @@ PrefabInstance:
       objectReference: {fileID: 1800663530619895132, guid: 00784d2cc70f47a469c32a004dc1d882, type: 3}
     - target: {fileID: 2723801278905364896, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
       propertyPath: shootForce
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2723801278905364896, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
       propertyPath: sightRange
@@ -8796,7 +8813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2723801278905364896, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
       propertyPath: attackRange
-      value: 25
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2723801278905364897, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
       propertyPath: m_BaseOffset
@@ -8847,6 +8864,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2723801278905364903, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+      propertyPath: m_Size.z
+      value: 0.751503
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723801278905364903, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+      propertyPath: m_Center.z
+      value: -0.124248505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723801278905364903, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -8868,6 +8893,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2723801278905364902, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801279083779405, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801279039594513, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801277116644690, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801278407610791, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801279039211566, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801276961173519, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801278551074787, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801278838047709, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+    - {fileID: 2723801278720890294, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
 --- !u!1001 &3818996244245233501
 PrefabInstance:
