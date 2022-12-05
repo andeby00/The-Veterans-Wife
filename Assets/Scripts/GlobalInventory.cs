@@ -17,12 +17,7 @@ public class GlobalInventory : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             Instance = this;
             
-            var newGun = Instantiate(starterGun).transform;
-                
-            newGun.SetParent(gunContainer);
-            newGun.localPosition = Vector3.zero;
-            newGun.localRotation = Quaternion.Euler(Vector3.zero);
-            newGun.localScale = Vector3.one;
+            Instantiate(starterGun, gunContainer);
         }
         else if (Instance != this)
         {
