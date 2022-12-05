@@ -54,6 +54,12 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
+
+        if (health < 0)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        
         RaycastHit hit;
         Ray ray = camera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         
