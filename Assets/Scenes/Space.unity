@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b69903de9ae95147a8ca71882f33a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coins: 500
   starterGun: {fileID: 7329485061952281597, guid: fdc52685d40619440835fecc3b203a56, type: 3}
   gunContainer: {fileID: 470784417}
 --- !u!4 &470784417
