@@ -17,6 +17,7 @@ public class GlobalInventory : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             Instance = this;
             
+            starterGun.GetComponent<GunShoot>().enabled = false;
             Instantiate(starterGun, gunContainer);
         }
         else if (Instance != this)
