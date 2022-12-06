@@ -35,13 +35,15 @@ public class MenuManager : MonoBehaviour
     {
         mainMenu.gameObject.SetActive(true);
         Time.timeScale = 0f;
-        isGamePaused = true;    
+        isGamePaused = true;
+        Cursor.visible = true;
     }
 
     private void ResumeGame()
     {
         mainMenu.gameObject.SetActive(false);
         Time.timeScale = 1f;    
-        isGamePaused = false;   
+        isGamePaused = false;
+        Cursor.visible = true;
     }
 }

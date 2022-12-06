@@ -1666,7 +1666,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1545979304
 MonoBehaviour:
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a0ac73e36dd37499ea46f018aa0f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1545979304}
+  mainMenu: {fileID: 0}
 --- !u!114 &1545979307
 MonoBehaviour:
   m_ObjectHideFlags: 0
