@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 120479689}
-  m_IndirectSpecularColor: {r: 0.08264104, g: 0.2536609, b: 0.30687535, a: 1}
+  m_IndirectSpecularColor: {r: 0.09781856, g: 0.28450257, b: 0.3427028, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15430,7 +15430,7 @@ MonoBehaviour:
   brute: {fileID: 2723801278905364909, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
   player: {fileID: 1664644736}
   enemies: {fileID: 996292598}
-  timeRemaining: 305
+  timeRemaining: 300
   timerIsRunning: 0
   timerDisplay: {fileID: 132442109}
 --- !u!4 &529814574
