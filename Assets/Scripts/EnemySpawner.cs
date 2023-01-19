@@ -1,18 +1,17 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject area; 
+    [SerializeField] GameObject spawningArea; 
     [SerializeField] GameObject dude; 
     [SerializeField] GameObject brute;
     [SerializeField] Transform player;
     [SerializeField] Transform enemies;
+    [SerializeField] int maxNoEnemeis = 100;
     
     int _i = 0;
-    Vector3 _localScale;
-    
+
     [SerializeField] float timeRemaining = 300;
     [SerializeField] bool timerIsRunning = false;
     [SerializeField] TextMeshProUGUI timerDisplay;
@@ -21,8 +20,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DisplayTime(timeRemaining);
         Invoke(nameof(StartSpawning), 5);
-        _localScale = area.transform.localScale;
     }
 
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);                
+                DisplayTime(timeRemaining);
             }
             else
             {
@@ -45,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
                 PlanetEnd();
             }
         }
-
     }
 
     void StartSpawning()
@@ -64,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _i += 1;
         
-        if(enemies.childCount > 100)
+        if(enemies.childCount > maxNoEnemeis)
         {
             Invoke(nameof(Spawn), 1f);
             return;
@@ -104,13 +102,17 @@ public class EnemySpawner : MonoBehaviour
         
         for (int j = 0; j < UPPER; j++)
         {
-            var newPos = new Vector3(
-                Random.Range(-_localScale.x, _localScale.x),
-                area.transform.position.y,
-                Random.Range(-_localScale.z, _localScale.z)
+            var tempPos = spawningArea.transform.TransformPoint(
+                Random.Range(-.5f, .5f),
+                0,
+                Random.Range(-.5f, .5f)
             );
+
+            var newPos = enemies.InverseTransformPoint(tempPos);
+            newPos.y = spawningArea.transform.position.y;
             
-            if((player.position - newPos).sqrMagnitude < 500)
+            // Enemies spawn sqrt(500) units away from the player
+            if((player.position - newPos).sqrMagnitude < 500) // virker vidst, men ved ik om det passer ift relative pos, skal være serialize field?
                 continue;
             
             var currentEnemy = Instantiate(x, newPos, Quaternion.identity, enemies);
@@ -121,6 +123,6 @@ public class EnemySpawner : MonoBehaviour
     void PlanetEnd()
     {
         player.GetComponent<PlayerInventory>().SavePlayer();
-        SceneManager.LoadSceneAsync("Space");
+        SceneManager.LoadScene("Space");
     }
 }

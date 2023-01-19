@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -57,6 +56,9 @@ public class PlayerInventory : MonoBehaviour
 
         if (health < 0)
         {
+            
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("Menu");
         }
         
@@ -69,8 +71,8 @@ public class PlayerInventory : MonoBehaviour
                 text.SetText("Press \"E\" to Exit");
             
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.CompareTag("Door")) {
-                SceneManager.LoadSceneAsync("Space");
                 SavePlayer();
+                SceneManager.LoadScene("Space");
             }
             
             var x = hit.transform.GetComponent<BuyableItem>();

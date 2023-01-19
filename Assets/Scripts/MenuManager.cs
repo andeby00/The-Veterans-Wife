@@ -7,25 +7,25 @@ public class MenuManager : MonoBehaviour
 {
     public static bool isGamePaused = false;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject mainCanvas;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainMenu.SetActive(false);
-      
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             if (isGamePaused)
             {
+                Debug.Log("prlay");
                 ResumeGame();
             }
             else
             {
+                Debug.Log("Puase");
                 PauseGame();
             }
         }
@@ -33,17 +33,21 @@ public class MenuManager : MonoBehaviour
 
     private void PauseGame()
     {
-        mainMenu.gameObject.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        mainCanvas.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
+        mainCanvas.gameObject.SetActive(true);
         mainMenu.gameObject.SetActive(false);
         Time.timeScale = 1f;    
         isGamePaused = false;
-        Cursor.visible = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
