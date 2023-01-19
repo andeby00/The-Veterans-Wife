@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 120479689}
-  m_IndirectSpecularColor: {r: 0.09781856, g: 0.28450257, b: 0.3427028, a: 1}
+  m_IndirectSpecularColor: {r: 0.08280092, g: 0.25400066, b: 0.30732584, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,6 +180,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e5ac4897502add46af77ce99e304e54, type: 3}
+--- !u!1 &41575528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41575529}
+  m_Layer: 1
+  m_Name: xd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41575529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41575528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 880747611}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &48208393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15425,11 +15456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352ab64f54406164aaf337561056cd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 880747610}
+  spawningArea: {fileID: 880747610}
   dude: {fileID: 1709819006209835489, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
   brute: {fileID: 2723801278905364909, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
   player: {fileID: 1664644736}
   enemies: {fileID: 996292598}
+  maxNoEnemeis: 100
   timeRemaining: 300
   timerIsRunning: 0
   timerDisplay: {fileID: 132442109}
@@ -16094,7 +16126,7 @@ GameObject:
   - component: {fileID: 880747611}
   - component: {fileID: 880747614}
   - component: {fileID: 880747615}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spawning area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16109,10 +16141,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880747610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.5, y: -104, z: -94}
-  m_LocalScale: {x: 100, y: 0.01, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalPosition: {x: 33.6, y: -104, z: -83}
+  m_LocalScale: {x: 120.00001, y: 0.012, z: 120.00001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 41575529}
   m_Father: {fileID: 529814574}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16131,7 +16164,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880747610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
