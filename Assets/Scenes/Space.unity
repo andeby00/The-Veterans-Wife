@@ -852,6 +852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1417506261}
     m_Modifications:
+    - target: {fileID: 4649693808077908738, guid: df4988949c735904bbcea0a45d986459, type: 3}
+      propertyPath: sceneName
+      value: Desert Planet
+      objectReference: {fileID: 0}
     - target: {fileID: 4649693808077908750, guid: df4988949c735904bbcea0a45d986459, type: 3}
       propertyPath: m_RootOrder
       value: 3
