@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -124,6 +123,6 @@ public class EnemySpawner : MonoBehaviour
     void PlanetEnd()
     {
         player.GetComponent<PlayerInventory>().SavePlayer();
-        SceneManager.LoadSceneAsync("Space");
+        SceneManager.LoadScene("Space");
     }
 }
