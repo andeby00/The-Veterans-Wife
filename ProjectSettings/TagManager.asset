@@ -10,6 +10,7 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Door
+  - Heart
   layers:
   - Default
   - TransparentFX

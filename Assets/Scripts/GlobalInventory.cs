@@ -7,6 +7,7 @@ public class GlobalInventory : MonoBehaviour
     public static GlobalInventory Instance;
 
     public int coins = 0;
+    public float health = 1000;
     [SerializeField] GameObject starterGun;
     public Transform gunContainer;
 

@@ -37,6 +37,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int min = 3;
     [SerializeField] int max = 6;
 
+    [SerializeField] GameObject heart;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -136,8 +138,13 @@ public class EnemyAI : MonoBehaviour
         for (int i = 0; i < new System.Random().Next(min, max); i++)
         {
             GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-            var currentRB = currentCoin.GetComponent<Rigidbody>();
-            currentRB.AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            currentCoin.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+        }
+
+        if (Random.Range(0, 10) == 0)
+        {
+            GameObject currentHeart = Instantiate(heart, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+            currentHeart.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
         }
     }
 
