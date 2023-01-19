@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravity = -9.81f;
     //[SerializeField] TextMeshProUGUI velocityDiplay;
 
-    float _groundDistance = 0.1f;
+    [SerializeField] float coyoteTime = 0.3f;
+    float _coyoteTimeCounter ;
+    float _groundDistance = 0.2f;
     Vector3 _velocity;
 
     void Start()
@@ -52,11 +54,15 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && _velocity.y < 0)
         {
             _velocity.y = 0; // -2f
+            _coyoteTimeCounter = coyoteTime;
         }
-        
-        if (Input.GetButtonDown("Jump") && IsGrounded())    
+        else
+            _coyoteTimeCounter -= Time.deltaTime;
+
+        if (_coyoteTimeCounter > 0 && Input.GetButtonDown("Jump") )    
         {
             Jump();
+            _coyoteTimeCounter = 0;
         }
 
         //velocityDiplay.SetText(controller.velocity.ToShortString());
@@ -66,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsGrounded()
     {
-        
         return Physics.CheckSphere(groundCheck.position, _groundDistance, ground);
     }
 
