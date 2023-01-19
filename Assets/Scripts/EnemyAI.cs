@@ -27,10 +27,12 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectile;
     public float shootForce = 10f;
     public bool Explosive = false;
+    public float Damage = 30f;
 
     //States
     public float sightRange, attackRange;
     bool playerInSightRange, playerInAttackRange;
+    public bool isMelee;
 
     // Coins
     [SerializeField] GameObject coin;
@@ -95,23 +97,30 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
-            gameObject.transform.forward = player.position - attackPoint.position;
-            gameObject.GetOrAddComponent<BulletCollision>().Damage = 30f;
-            gameObject.GetComponent<BulletCollision>().Explosive = Explosive;
-            gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
+            if (isMelee)
+            {
+                player.GetComponent<PlayerInventory>().TakeDamage(Damage);
+            }
+            else
+            {
+                ///Attack code here
+                GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
+                gameObject.transform.forward = player.position - attackPoint.position;
+                gameObject.GetOrAddComponent<BulletCollision>().Damage = Damage;
+                gameObject.GetComponent<BulletCollision>().Explosive = Explosive;
+                gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
 
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
-            // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
-            Destroy(gameObject, 5f);
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
+                // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+                Destroy(gameObject, 5f);
 
 
-            ///End of attack code
+                ///End of attack code
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
         }
     }
     private void ResetAttack()
@@ -129,7 +138,7 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0) DestroyEnemy();
     }
-    private void DestroyEnemy()
+    public virtual void DestroyEnemy()
     {
         Destroy(gameObject);
 

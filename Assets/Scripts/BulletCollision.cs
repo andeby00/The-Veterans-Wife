@@ -50,7 +50,7 @@ public class BulletCollision : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("Player"))
             {
-                var player = other.transform.parent.GetComponent<PlayerInventory>();
+                var player = GameObject.Find("Player").GetComponent<PlayerInventory>();
                     
                 if (player != null)
                 {
