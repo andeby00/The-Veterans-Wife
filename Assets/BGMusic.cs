@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BGMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static BGMusic instance;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if(instance != null) 
+            Destroy(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }
