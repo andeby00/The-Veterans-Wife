@@ -20,12 +20,10 @@ public class MenuManager : MonoBehaviour
         {
             if (isGamePaused)
             {
-                Debug.Log("prlay");
                 ResumeGame();
             }
             else
             {
-                Debug.Log("Puase");
                 PauseGame();
             }
         }
@@ -40,7 +38,6 @@ public class MenuManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             mainMenu.gameObject.SetActive(true);
-
         }
         else
         {
@@ -50,7 +47,6 @@ public class MenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             mainCanvas.gameObject.SetActive(false);
             mainMenu.gameObject.SetActive(true);
-
         }
     }
 
@@ -62,7 +58,7 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 1f;
             isGamePaused = false;
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
         }
         else
         {

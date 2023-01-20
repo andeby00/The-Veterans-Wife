@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 120479689}
-  m_IndirectSpecularColor: {r: 0.052265927, g: 0.19044524, b: 0.2333158, a: 1}
+  m_IndirectSpecularColor: {r: 0.0664787, g: 0.21711493, b: 0.26469168, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5401,6 +5401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimePlanet
       objectReference: {fileID: 0}
+    - target: {fileID: 7875920101519311549, guid: 2f87891c695764448969dd4741804022, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7875920101519311550, guid: 2f87891c695764448969dd4741804022, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5679,12 +5683,15 @@ MonoBehaviour:
   dude: {fileID: 5069506435427686055, guid: c8502ef2da24bee47bf7ce89cf6b388b, type: 3}
   rangedDude: {fileID: 1709819006209835489, guid: 4f9ca78839595ad49adaa7a355aad89e, type: 3}
   brute: {fileID: 2723801278905364909, guid: f244329c174fa204881d7b27f6e14a07, type: 3}
+  boss: {fileID: 0}
+  lair: {fileID: 0}
   player: {fileID: 1664644736}
   enemies: {fileID: 996292598}
   maxNoEnemeis: 100
   timeRemaining: 300
   timerIsRunning: 0
   timerDisplay: {fileID: 132442109}
+  bossPlanet: 0
 --- !u!4 &529814574
 Transform:
   m_ObjectHideFlags: 0
@@ -6589,6 +6596,10 @@ PrefabInstance:
     - target: {fileID: 197827665311846569, guid: 868b9580c2f08f4459df179c6a797070, type: 3}
       propertyPath: m_Name
       value: EarthPlanet
+      objectReference: {fileID: 0}
+    - target: {fileID: 197827665311846569, guid: 868b9580c2f08f4459df179c6a797070, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 868b9580c2f08f4459df179c6a797070, type: 3}
