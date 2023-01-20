@@ -12,8 +12,9 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] Transform gunContainer;
         
-    //[SerializeField] AudioSource coindSound;
-    //[SerializeField] AudioSource healthdSound;
+    [SerializeField] AudioSource coindSound;
+    [SerializeField] AudioSource healthdSound;
+    [SerializeField] AudioSource damageSound;
     
     [SerializeField] float health = 1000;
     [SerializeField] int coins = 0;
@@ -49,7 +50,7 @@ public class PlayerInventory : MonoBehaviour
             Destroy(other.gameObject);
             coins++;
             coinsText.SetText(coins + "");
-            //coindSound.Play();
+            coindSound.Play();
         }
         
         if (other.gameObject.transform.CompareTag("Heart"))
@@ -57,7 +58,7 @@ public class PlayerInventory : MonoBehaviour
             Destroy(other.gameObject);
             health += 100;
             healthDisplay.SetText(health + "");
-            //healthdsound.Play();
+            healthdSound.Play();
         }
     }
 
@@ -129,6 +130,7 @@ public class PlayerInventory : MonoBehaviour
     {
         health -= damage;
         healthDisplay.SetText(health + "");
+        damageSound.Play();
     }
 
     public void Die()

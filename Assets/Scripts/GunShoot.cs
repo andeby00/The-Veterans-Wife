@@ -25,6 +25,18 @@ public class GunShoot : MonoBehaviour
     [SerializeField] ParticleSystem flash;
     [SerializeField] public TextMeshProUGUI ammoDisplay;
 
+    
+    // SOUND
+    // RELOAD
+    [SerializeField] public AudioSource AKSource;
+    [SerializeField] public AudioSource PistolSource;
+
+    // GUNSHOT
+    [SerializeField] public AudioSource AKshot;
+    [SerializeField] public AudioSource PistolShot;
+    // no ammo
+    [SerializeField] public AudioSource clickAmmo;
+
     // Update is called once per frame
     void Start()
     {
@@ -54,10 +66,10 @@ public class GunShoot : MonoBehaviour
             transform.Rotate(new Vector3 (-(1f / reloadTime) * 360f  * Time.deltaTime, 0, 0));
         }
 
-        // if (_readyToShoot && _shooting && !_reloading && _bulletsLeft < 0) // hvis vi vil reload med venstreklik når mag er tom
-        // {
-        //     Reload();
-        // }
+        if (_readyToShoot && _shooting && !_reloading && _bulletsLeft < 0) // hvis vi vil reload med venstreklik når mag er tom
+        {
+            clickAmmo.Play();
+        }
 
         if (_readyToShoot && _shooting && !_reloading && _bulletsLeft > 0)
         {
@@ -119,6 +131,12 @@ public class GunShoot : MonoBehaviour
         {
             Invoke("Shoot", 60 / fireRateDuringBurst); // burst fire
         }
+
+        if (automatic)
+            AKshot.Play();
+        else
+            PistolShot.Play();
+            
     }
 
     private void ResetShot()
@@ -131,6 +149,14 @@ public class GunShoot : MonoBehaviour
     {
         _reloading = true;
         Invoke("ReloadFinished", reloadTime);
+        if(automatic)
+        {
+            AKSource.Play();
+        }
+        else
+        {
+            PistolSource.Play();
+        }
     }
 
     private void ReloadFinished()
