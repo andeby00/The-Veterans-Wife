@@ -48,15 +48,15 @@ public class BulletCollision : MonoBehaviour
 
                 Destroy(gameObject);
             }
-            else if (other.gameObject.CompareTag("Player"))
-            {
-                var player = GameObject.Find("Player").GetComponent<PlayerInventory>();
-                    
-                if (player != null)
-                {
-                    player.TakeDamage(Damage);
-                }
-            }
+            //else if (other.gameObject.CompareTag("Player"))
+            //{
+            //    var player = other.transform.parent.GetComponent<PlayerInventory>();
+
+            //    if (player != null)
+            //    {
+            //        player.TakeDamage(Damage);
+            //    }
+            //}
         }
     }
 }

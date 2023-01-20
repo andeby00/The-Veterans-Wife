@@ -1862,7 +1862,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069506435427686052}
-  - component: {fileID: 5069506435427686050}
   - component: {fileID: 5069506435427686053}
   - component: {fileID: 5069506435427686048}
   - component: {fileID: 5069506435427686051}
@@ -1895,22 +1894,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5069506435427686050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5069506435427686055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2db9486c3551324194201605270b8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
-  coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
-  min: 3
-  max: 6
 --- !u!114 &5069506435427686053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,7 +1914,8 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 0
+  slimePrefab: {fileID: 0}
+  health: 350
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   attackPoint: {fileID: 6496333237489908235}
@@ -1939,9 +1923,11 @@ MonoBehaviour:
   projectile: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
   shootForce: 10
   Explosive: 0
+  Damage: 30
   sightRange: 15
-  attackRange: 5
-  coin: {fileID: 0}
+  attackRange: 2
+  isMelee: 1
+  coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 3
   max: 6
 --- !u!65 &5069506435427686048
