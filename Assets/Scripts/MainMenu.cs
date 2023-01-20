@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
+        GlobalInventory.Instance.Reset();
         SceneManager.LoadScene("CutScene");
     }
 
