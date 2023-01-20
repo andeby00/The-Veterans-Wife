@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 Months ago, The Veteran's wife was abducted by aliens from their backyard.
+  m_text: 'Oh my god! I cannot believe you found me, '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -309,18 +309,6 @@ PlayableDirector:
     value: {fileID: 1320148655}
   - key: {fileID: 6622637843351225969, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
     value: {fileID: 680180511}
-  - key: {fileID: 5798461423007338567, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -3479272175637090561, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -4436202155683942639, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 3224574661207449714, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 6510541552028031472, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7670007012720523456, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -193178332010061562, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
     value: {fileID: 1936008026}
   - key: {fileID: -5033782171908729985, guid: ddf86af2ea4d7d84e8b12565b136564f, type: 2}
@@ -379,7 +367,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -590,8 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Veteran packed his bags and his most powerful handgun, and took off
-    in his spaceship to start the mission
+  m_text: The Veteran and his wife lived happily ever after
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -700,7 +687,7 @@ GameObject:
   - component: {fileID: 680180514}
   - component: {fileID: 680180513}
   m_Layer: 5
-  m_Name: Background_3
+  m_Name: TheVeteran
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763679880}
-  - component: {fileID: 763679879}
+  - component: {fileID: 763679881}
   m_Layer: 0
   m_Name: NextSceneLoader
   m_TagString: Untagged
@@ -781,18 +768,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &763679879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763679878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33804974c63302a46bf1c596a4d0078a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &763679880
 Transform:
   m_ObjectHideFlags: 0
@@ -808,6 +783,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763679881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763679878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb1409940fa59548bd575b089de9b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &769309885
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +927,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Luckily, The Veteran is a very experienced spaceship pilot and sharpshooter.
+  m_text: We can finally leave now and go home to planet Earth, where we will be
+    safe now
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -1034,7 +1022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: -172.1}
+  m_AnchoredPosition: {x: 39, y: -139}
   m_SizeDelta: {x: 214.3981, y: 62.3368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &982362721
@@ -1146,7 +1134,7 @@ GameObject:
   - component: {fileID: 1320148657}
   - component: {fileID: 1320148656}
   m_Layer: 5
-  m_Name: Background_2
+  m_Name: BothGoingHome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,7 +1307,7 @@ GameObject:
   - component: {fileID: 1779945869}
   - component: {fileID: 1779945868}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Wife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1383,7 @@ GameObject:
   - component: {fileID: 1936008028}
   - component: {fileID: 1936008027}
   m_Layer: 5
-  m_Name: Background_1
+  m_Name: WifeIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,8 +1485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Veteran made it his mission, to find his wife and exterminate all enemies
-    on his path
+  m_text: The things they have done to me.. Indescribable..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}

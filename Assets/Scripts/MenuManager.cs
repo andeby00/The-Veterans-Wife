@@ -33,21 +33,46 @@ public class MenuManager : MonoBehaviour
 
     private void PauseGame()
     {
-        Time.timeScale = 0f;
-        isGamePaused = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        mainCanvas.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
+        if(SceneManager.GetActiveScene().name == "Space")
+        {
+            Time.timeScale = 0f;
+            isGamePaused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            mainMenu.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            isGamePaused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            mainCanvas.gameObject.SetActive(false);
+            mainMenu.gameObject.SetActive(true);
+
+        }
     }
 
     public void ResumeGame()
     {
-        mainCanvas.gameObject.SetActive(true);
-        mainMenu.gameObject.SetActive(false);
-        Time.timeScale = 1f;    
-        isGamePaused = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (SceneManager.GetActiveScene().name == "Space")
+        {
+            mainMenu.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+            isGamePaused = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            mainCanvas.gameObject.SetActive(true);
+            mainMenu.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+            isGamePaused = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
     }
 }

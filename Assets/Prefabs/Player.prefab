@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3014766635739475981}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -1029,7 +1029,6 @@ GameObject:
   - component: {fileID: 8023827735643845012}
   - component: {fileID: 1211672049401389509}
   - component: {fileID: 1573872636683039020}
-  - component: {fileID: 3014766635739475981}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -1135,20 +1134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b0a9f85db66b84a8e0a6278217e896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3014766635739475981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3923270416882837790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a0ac73e36dd37499ea46f018aa0f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 3923270416882837790}
-  mainCanvas: {fileID: 6450323918903631411}
 --- !u!1 &4078194821996968341
 GameObject:
   m_ObjectHideFlags: 0
