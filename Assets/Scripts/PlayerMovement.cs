@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] TextMeshProUGUI velocityDiplay;
 
     [SerializeField] float coyoteTime = 0.3f;
+
+    // SOUND
+    [SerializeField] AudioSource jumpSource;
+
+    //
+
     float _coyoteTimeCounter ;
     float _groundDistance = 0.2f;
     Vector3 _velocity;
@@ -78,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         _velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        jumpSource.Play();
         //controller.Move(_velocity);
         // _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
     }

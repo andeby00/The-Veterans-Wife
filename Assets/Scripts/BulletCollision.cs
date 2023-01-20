@@ -50,15 +50,15 @@ public class BulletCollision : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
-            else if (other.gameObject.CompareTag("Player"))
-            {
-                var player = other.transform.parent.parent.GetComponent<PlayerInventory>();
-                if (player != null)
-                {
-                    player.TakeDamage(Damage);
-                }
-                Destroy(gameObject);
-            }
+            //else if (other.gameObject.CompareTag("Player"))
+            //{
+            ////    var player = other.transform.parent.parent.GetComponent<PlayerInventory>();
+            ////    if (player != null)
+            ////    {
+            ////        player.TakeDamage(Damage);
+            ////    }
+            ////    Destroy(gameObject);
+            ////}
         }
     }
 }

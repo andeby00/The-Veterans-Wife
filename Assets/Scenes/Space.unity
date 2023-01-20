@@ -611,7 +611,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 59681e859204ad84ca1e7459db805e73, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -981,9 +981,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6c2465f550710914b86572831d5dda26, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 16adc3e8126ea3246bcabe32ab4039a9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.048
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
