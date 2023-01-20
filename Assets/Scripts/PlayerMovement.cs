@@ -81,4 +81,9 @@ public class PlayerMovement : MonoBehaviour
         //controller.Move(_velocity);
         // _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
     }
+
+    public void TornadoJump()
+    {
+        _velocity.y = Mathf.Sqrt((jumpHeight) * -2 * gravity);
+    }
 }
