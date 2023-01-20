@@ -34,6 +34,7 @@ public class GunShoot : MonoBehaviour
     // GUNSHOT
     [SerializeField] public AudioSource AKshot;
     [SerializeField] public AudioSource PistolShot;
+    [SerializeField] public AudioSource BazookaShot;
     // no ammo
     [SerializeField] public AudioSource clickAmmo;
 
@@ -134,9 +135,10 @@ public class GunShoot : MonoBehaviour
 
         if (automatic)
             AKshot.Play();
+        else if(explosive)
+            BazookaShot.Play();
         else
             PistolShot.Play();
-            
     }
 
     private void ResetShot()
@@ -149,7 +151,7 @@ public class GunShoot : MonoBehaviour
     {
         _reloading = true;
         Invoke("ReloadFinished", reloadTime);
-        if(automatic)
+        if(automatic || explosive)
         {
             AKSource.Play();
         }

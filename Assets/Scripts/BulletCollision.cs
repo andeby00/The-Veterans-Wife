@@ -8,11 +8,14 @@ public class BulletCollision : MonoBehaviour
     public float ExplosionRadius { get; set; } = 8f;
     public bool Explosive { get; set; }
     [SerializeField] public LayerMask enemyLayer;
+    [SerializeField] public AudioSource explosionSound;
 
     private void OnTriggerEnter(Collider other)
     {
         if (Explosive)
         {
+            explosionSound.enabled = true;
+            explosionSound.Play();
             var xd = Physics.OverlapSphere(gameObject.transform.position, ExplosionRadius, enemyLayer);
             foreach (var enemyCollider in xd)
             {
