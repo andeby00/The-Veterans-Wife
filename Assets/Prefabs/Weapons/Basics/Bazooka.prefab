@@ -61,6 +61,11 @@ MonoBehaviour:
   attackPoint: {fileID: 8629314512379807959}
   flash: {fileID: 8629314513201984958}
   ammoDisplay: {fileID: 0}
+  AKSource: {fileID: 0}
+  PistolSource: {fileID: 0}
+  AKshot: {fileID: 0}
+  PistolShot: {fileID: 0}
+  clickAmmo: {fileID: 0}
 --- !u!1 &8629314511548625674
 GameObject:
   m_ObjectHideFlags: 0

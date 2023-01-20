@@ -101,8 +101,8 @@ public class EnemyAI : MonoBehaviour
         transform.LookAt(player);
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         rotatable.LookAt(player);
-        
 
+        Debug.Log(alreadyAttacked);
         if (!alreadyAttacked)
         {
             if (isMelee)

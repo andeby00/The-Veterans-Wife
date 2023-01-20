@@ -1032,8 +1032,8 @@ MonoBehaviour:
   isMelee: 0
   isSlimeSplit: 0
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
-  min: 6
-  max: 10
+  min: 10
+  max: 25
   heart: {fileID: 9035697765521514754, guid: 2e72d6269154b1d4b98295bceb683242, type: 3}
 --- !u!54 &2723801278905364902
 Rigidbody:

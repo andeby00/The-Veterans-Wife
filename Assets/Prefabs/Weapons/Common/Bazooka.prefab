@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ad4f564d4d5bb44be7291a3882b5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: -1
+  damage: 200
   bullet: {fileID: 1800663530619895132, guid: 00784d2cc70f47a469c32a004dc1d882, type: 3}
   shootForce: 99
   upwardForce: 0
@@ -61,6 +61,11 @@ MonoBehaviour:
   attackPoint: {fileID: 8629314512379807959}
   flash: {fileID: 8629314513201984958}
   ammoDisplay: {fileID: 0}
+  AKSource: {fileID: 0}
+  PistolSource: {fileID: 0}
+  AKshot: {fileID: 0}
+  PistolShot: {fileID: 0}
+  clickAmmo: {fileID: 0}
 --- !u!1 &8629314511548625674
 GameObject:
   m_ObjectHideFlags: 0

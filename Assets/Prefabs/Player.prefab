@@ -2074,7 +2074,7 @@ MonoBehaviour:
   gunContainer: {fileID: 8484782084316977936}
   coindSound: {fileID: 8416947481468647875}
   healthdSound: {fileID: 5877426063446200373}
-  damageSound: {fileID: 0}
+  damageSound: {fileID: 9116185944319266147}
   health: 1000
   coins: 0
 --- !u!114 &1509699571513761873
@@ -2389,9 +2389,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7258f228521dae94da86ead61dc7e9c4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 04e071fdeb3bdb1409090d8c73655a9c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 0
   Mute: 0
