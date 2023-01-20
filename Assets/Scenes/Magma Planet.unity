@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 120479689}
-  m_IndirectSpecularColor: {r: 0.21082842, g: 0.07610258, b: 0.099568896, a: 1}
+  m_IndirectSpecularColor: {r: 0.21146569, g: 0.07644717, b: 0.100040175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   player: {fileID: 809154520}
   enemies: {fileID: 1382382505}
   maxNoEnemeis: 100
-  timeRemaining: 300
+  timeRemaining: 60
   timerIsRunning: 0
   timerDisplay: {fileID: 632183923}
   bossPlanet: 1
