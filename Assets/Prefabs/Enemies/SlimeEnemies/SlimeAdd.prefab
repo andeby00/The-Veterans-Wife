@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 391a9bcb1b0fc44499f65095cbc73788, type: 2}
+  - {fileID: 2100000, guid: 59f1764952b9bd04b858b944c5e13a6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8567516463487894152}
   player: {fileID: 0}
+  rotatable: {fileID: 8357941404936730739}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -155,22 +156,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   slimePrefab: {fileID: 3818996245450633117, guid: 77f10e078f4ea3346bc32ff863591491, type: 3}
-  health: 300
+  health: 1500
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
+  walkPointRange: 2
   attackPoint: {fileID: 5264304210518854127}
   timeBetweenAttacks: 1.5
   projectile: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
   shootForce: 10
   Explosive: 0
-  Damage: 50
-  sightRange: 35
-  attackRange: 1.4
+  Damage: 60
+  sightRange: 300
+  attackRange: 3
   isMelee: 1
   isSlimeSplit: 1
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 3
   max: 6
+  heart: {fileID: 0}
 --- !u!195 &8567516463487894152
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

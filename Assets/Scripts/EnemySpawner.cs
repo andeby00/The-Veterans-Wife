@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject dude;
     [SerializeField] GameObject rangedDude;
     [SerializeField] GameObject brute;
+    [SerializeField] GameObject boss;
+    [SerializeField] GameObject lair;
     [SerializeField] Transform player;
     [SerializeField] Transform enemies;
     [SerializeField] int maxNoEnemeis = 100;
@@ -16,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float timeRemaining = 300;
     [SerializeField] bool timerIsRunning = false;
     [SerializeField] TextMeshProUGUI timerDisplay;
+    [SerializeField] bool bossPlanet = false; 
 
     
     // Start is called before the first frame update
@@ -41,15 +45,19 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 timeRemaining = 0;
+                DisplayTime(timeRemaining);
                 timerIsRunning = false;
-                PlanetEnd();
             }
         }
     }
 
     void StartSpawning()
     {
-        Spawn();
+        if(bossPlanet)
+            SpawnBossPlanet();
+        else
+            Spawn();
+        
         timerIsRunning = true;
         //Invoke(nameof(PlanetEnd), timeRemaining);
     }
@@ -94,10 +102,40 @@ public class EnemySpawner : MonoBehaviour
                 SpawnX(dude, 5, 10);
                 break;
             default:
+                PlanetEnd();
                 break;
         }
         
         Invoke(nameof(Spawn), 1f);
+    }
+    
+    void SpawnBossPlanet()
+    {
+        _i += 1;
+
+        if(_i == 61)
+        {
+            SpawnX(boss, 1, 2);
+        }
+        
+        if(enemies.childCount > maxNoEnemeis)
+        {
+            Invoke(nameof(SpawnBossPlanet), 1f);
+            return;
+        }
+
+        switch (_i)
+        {
+            case <= 60:
+                SpawnX(dude, 2, 7);
+                break;
+            default:
+                if(enemies.childCount == 0)
+                    lair.SetActive(false);
+                break;
+        }
+        
+        Invoke(nameof(SpawnBossPlanet), 1f);
     }
 
     void SpawnX(GameObject x, int minInc, int maxEx)
@@ -111,7 +149,6 @@ public class EnemySpawner : MonoBehaviour
                 0,
                 Random.Range(-.5f, .5f)
             );
-
             var newPos = enemies.InverseTransformPoint(tempPos);
             newPos.y = spawningArea.transform.position.y;
             
@@ -119,6 +156,17 @@ public class EnemySpawner : MonoBehaviour
             if((player.position - newPos).sqrMagnitude < 1000) // virker vidst, men ved ik om det passer ift relative pos, skal være serialize field?
                 continue;
             
+            RaycastHit hit;
+            Ray ray = new Ray(newPos, Vector3.down);
+            
+            Vector3 targetPoint;
+            
+            if (Physics.Raycast(ray, out hit))
+            {
+                targetPoint = hit.point;
+                newPos.y = targetPoint.y + 3;
+            }
+
             var currentEnemy = Instantiate(x, newPos, Quaternion.identity, enemies);
             currentEnemy.GetComponent<EnemyAI>().player = player;
         }

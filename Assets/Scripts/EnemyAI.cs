@@ -148,20 +148,20 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0) DestroyEnemy();
     }
+    
     public void DestroyEnemy()
     {
-        if (gameObject && isSlimeSplit)
+        if (isSlimeSplit)
         {
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
-            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(slimePrefab, transform.position, transform.rotation, transform.parent);
             Destroy(gameObject);
-            
         } 
         else 
         {
