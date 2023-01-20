@@ -14,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
         
     [SerializeField] AudioSource coindSound;
     [SerializeField] AudioSource healthdSound;
+    [SerializeField] AudioSource damageSound;
     
     [SerializeField] float health = 1000;
     [SerializeField] int coins = 0;
@@ -129,6 +130,7 @@ public class PlayerInventory : MonoBehaviour
     {
         health -= damage;
         healthDisplay.SetText(health + "");
+        damageSound.Play();
     }
 
     public void Die()
