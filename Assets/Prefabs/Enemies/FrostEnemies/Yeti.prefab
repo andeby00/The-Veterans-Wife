@@ -1017,18 +1017,20 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+  slimePrefab: {fileID: 0}
   health: 750
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   attackPoint: {fileID: 328885710076657380}
   timeBetweenAttacks: 2
   projectile: {fileID: 1800663530619895132, guid: 00784d2cc70f47a469c32a004dc1d882, type: 3}
-  shootForce: 60
+  shootForce: 22
   Explosive: 1
   Damage: 75
   sightRange: 2000
   attackRange: 30
   isMelee: 0
+  isSlimeSplit: 0
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 6
   max: 10
@@ -1873,11 +1875,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7928602098646168669}
-  m_LocalRotation: {x: -0.1362974, y: -0.0013639188, z: -0.00083870837, w: 0.9906667}
+  m_LocalRotation: {x: -0.26443863, y: -0.0012427776, z: -0.0010095595, w: 0.96440125}
   m_LocalPosition: {x: -0.022999883, y: -0.012000084, z: 1.411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7911468394999623363}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -15.667, y: -0.147, z: -0.077}
+  m_LocalEulerAnglesHint: {x: -30.667, y: -0.124, z: -0.086}

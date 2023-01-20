@@ -5030,7 +5030,7 @@ MonoBehaviour:
   spread: 0
   reloadTime: 0.5
   fireRateDuringBurst: 0
-  magazineSize: 8
+  magazineSize: 12
   bulletsPerTap: 1
   automatic: 0
   explosive: 0

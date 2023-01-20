@@ -84,12 +84,12 @@ public class EnemySpawner : MonoBehaviour
                 SpawnX(dude, 3, 6);
                 break;
             case <= 240:
-                SpawnX(brute, 1, 3);
+                SpawnX(brute, 0, 2);
                 SpawnX(rangedDude, 2, 4); //1 2
                 SpawnX(dude, 3, 7);
                 break;
             case <= 300:
-                SpawnX(brute, 1, 3);
+                SpawnX(brute, 0, 3);
                 SpawnX(rangedDude, 2, 6); //1 2
                 SpawnX(dude, 5, 10);
                 break;
@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
             newPos.y = spawningArea.transform.position.y;
             
             // Enemies spawn sqrt(500) units away from the player
-            if((player.position - newPos).sqrMagnitude < 500) // virker vidst, men ved ik om det passer ift relative pos, skal være serialize field?
+            if((player.position - newPos).sqrMagnitude < 1000) // virker vidst, men ved ik om det passer ift relative pos, skal være serialize field?
                 continue;
             
             var currentEnemy = Instantiate(x, newPos, Quaternion.identity, enemies);

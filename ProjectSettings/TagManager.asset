@@ -19,11 +19,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Bullet
   - Player
   - Enemy
   - Post Processing
-  - 
+  - PlayerPickup
   - 
   - 
   - 
