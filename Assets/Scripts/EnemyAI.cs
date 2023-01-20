@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
 
     public Transform player;
+    
+    public Transform rotatable;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -89,7 +91,6 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        
     }
 
     private void AttackPlayer()
@@ -98,6 +99,9 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        rotatable.LookAt(player);
+        
 
         if (!alreadyAttacked)
         {
@@ -119,6 +123,8 @@ public class EnemyAI : MonoBehaviour
                 // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
                 Destroy(gameObject, 5f);
             }
+            
+            ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

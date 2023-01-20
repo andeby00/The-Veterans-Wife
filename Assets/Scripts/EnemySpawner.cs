@@ -4,7 +4,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject spawningArea; 
-    [SerializeField] GameObject dude; 
+    [SerializeField] GameObject dude;
+    [SerializeField] GameObject rangedDude;
     [SerializeField] GameObject brute;
     [SerializeField] Transform player;
     [SerializeField] Transform enemies;
@@ -75,19 +76,22 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case <= 120:
                 SpawnX(dude, 2, 4);
-                SpawnX(brute, 0, 5); //1 2
+                SpawnX(rangedDude, 0, 2); //1 2
                 break;
             case <= 180:
+                SpawnX(brute, 0, 2);
+                SpawnX(rangedDude, 2, 4); //1 2
                 SpawnX(dude, 3, 6);
-                SpawnX(brute, 1, 2);
                 break;
             case <= 240:
-                SpawnX(dude, 4, 7);
                 SpawnX(brute, 1, 3);
+                SpawnX(rangedDude, 2, 4); //1 2
+                SpawnX(dude, 3, 7);
                 break;
             case <= 300:
+                SpawnX(brute, 1, 3);
+                SpawnX(rangedDude, 2, 6); //1 2
                 SpawnX(dude, 5, 10);
-                SpawnX(brute, 2, 6);
                 break;
             default:
                 break;

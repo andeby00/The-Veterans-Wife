@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
@@ -8,7 +10,7 @@ public class BulletCollision : MonoBehaviour
     [SerializeField] public LayerMask enemyLayer;
 
     private void OnTriggerEnter(Collider other)
-    {   
+    {
         if (Explosive)
         {
             var xd = Physics.OverlapSphere(gameObject.transform.position, ExplosionRadius, enemyLayer);
@@ -45,18 +47,16 @@ public class BulletCollision : MonoBehaviour
                 {
                     enemy.TakeDamage(Damage);
                 }
-
-                Destroy(gameObject);
             }
-            //else if (other.gameObject.CompareTag("Player"))
-            //{
-            //    var player = other.transform.parent.GetComponent<PlayerInventory>();
-
-            //    if (player != null)
-            //    {
-            //        player.TakeDamage(Damage);
-            //    }
-            //}
+            else if (other.gameObject.CompareTag("Player"))
+            {
+                var player = other.transform.parent.parent.GetComponent<PlayerInventory>();
+                if (player != null)
+                {
+                    player.TakeDamage(Damage);
+                }
+            }
+            Destroy(gameObject);
         }
     }
 }
