@@ -970,6 +970,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+  slimePrefab: {fileID: 0}
   health: 150
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
@@ -980,8 +981,9 @@ MonoBehaviour:
   Explosive: 0
   Damage: 30
   sightRange: 2000
-  attackRange: 5
+  attackRange: 22
   isMelee: 0
+  isSlimeSplit: 0
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 3
   max: 6

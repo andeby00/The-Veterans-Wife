@@ -120,8 +120,12 @@ public class EnemyAI : MonoBehaviour
 
                 Rigidbody rb = gameObject.GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
-                // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
-                Destroy(gameObject, 5f);
+                if (Explosive)
+                {
+                    rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+                    
+                }
+                Destroy(gameObject, 8f);
             }
             
             ///End of attack code

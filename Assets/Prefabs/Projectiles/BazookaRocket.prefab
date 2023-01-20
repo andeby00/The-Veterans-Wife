@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3443136809586395370}
   - component: {fileID: 3250512199665710902}
   - component: {fileID: 7784757197314300791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BazookaRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
