@@ -448,7 +448,8 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 0
+  slimePrefab: {fileID: 0}
+  health: 50
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   attackPoint: {fileID: 6431122530172633095}
@@ -456,9 +457,11 @@ MonoBehaviour:
   projectile: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
   shootForce: 10
   Explosive: 0
-  Damage: 30
-  sightRange: 0
-  attackRange: 0
+  Damage: 25
+  sightRange: 30
+  attackRange: 2
+  isMelee: 1
+  isSlimeSplit: 0
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 3
   max: 6
@@ -472,7 +475,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

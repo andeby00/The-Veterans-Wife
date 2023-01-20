@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    [SerializeField] GameObject slimePrefab;
 
     public float health;
 
@@ -35,6 +36,7 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     bool playerInSightRange, playerInAttackRange;
     public bool isMelee;
+    public bool isSlimeSplit;
 
     // Coins
     [SerializeField] GameObject coin;
@@ -120,11 +122,9 @@ public class EnemyAI : MonoBehaviour
                 rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
                 // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
                 Destroy(gameObject, 5f);
-
             }
-
+            
             ///End of attack code
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -144,20 +144,36 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0) DestroyEnemy();
     }
-    public virtual void DestroyEnemy()
+    public void DestroyEnemy()
     {
-        Destroy(gameObject);
-
-        for (int i = 0; i < new System.Random().Next(min, max); i++)
+        if (gameObject && isSlimeSplit)
         {
-            GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-            currentCoin.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
-        }
-
-        if (Random.Range(0, 10) == 0)
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+            
+        } 
+        else 
         {
-            GameObject currentHeart = Instantiate(heart, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-            currentHeart.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            Destroy(gameObject);
+
+            for (int i = 0; i < new System.Random().Next(min, max); i++)
+            {
+                GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                currentCoin.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            }
+
+            if (Random.Range(0, 10) == 0)
+            {
+                GameObject currentHeart = Instantiate(heart, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                currentHeart.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            }
         }
     }
 

@@ -47,7 +47,6 @@ public class BulletCollision : MonoBehaviour
                 {
                     enemy.TakeDamage(Damage);
                 }
-                Destroy(gameObject);
             }
             else if (other.gameObject.CompareTag("Player"))
             {
@@ -56,8 +55,8 @@ public class BulletCollision : MonoBehaviour
                 {
                     player.TakeDamage(Damage);
                 }
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 }
