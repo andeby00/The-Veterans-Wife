@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
     [SerializeField] float movSpeed = 10f;
-    [SerializeField] float maxSpeed = 100f;
+    // [SerializeField] float maxSpeed = 100f;
     [SerializeField] float jumpHeight = 10f;
     [SerializeField] CharacterController controller;
     [SerializeField] float gravity = -9.81f;

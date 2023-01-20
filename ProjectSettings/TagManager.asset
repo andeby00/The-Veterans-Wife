@@ -10,6 +10,7 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Door
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Bullet
   - Player
   - Enemy
   - Post Processing
-  - 
+  - PlayerPickup
   - 
   - 
   - 

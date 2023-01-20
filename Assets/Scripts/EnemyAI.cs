@@ -9,9 +9,12 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
 
     public Transform player;
+    
+    public Transform rotatable;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    [SerializeField] GameObject slimePrefab;
 
     public float health;
 
@@ -27,15 +30,20 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectile;
     public float shootForce = 10f;
     public bool Explosive = false;
+    public float Damage = 30f;
 
     //States
     public float sightRange, attackRange;
     bool playerInSightRange, playerInAttackRange;
+    public bool isMelee;
+    public bool isSlimeSplit;
 
     // Coins
     [SerializeField] GameObject coin;
     [SerializeField] int min = 3;
     [SerializeField] int max = 6;
+
+    [SerializeField] GameObject heart;
 
     private void Awake()
     {
@@ -83,7 +91,6 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        
     }
 
     private void AttackPlayer()
@@ -92,24 +99,36 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        rotatable.LookAt(player);
+        
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
-            gameObject.transform.forward = player.position - attackPoint.position;
-            gameObject.GetOrAddComponent<BulletCollision>().Damage = 30f;
-            gameObject.GetComponent<BulletCollision>().Explosive = Explosive;
-            gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
+            if (isMelee)
+            {
+                player.GetComponent<PlayerInventory>().TakeDamage(Damage);
+            }
+            else
+            {
+                ///Attack code here
+                GameObject gameObject = Instantiate(projectile, attackPoint.position, Quaternion.identity);
+                gameObject.transform.forward = player.position - attackPoint.position;
+                gameObject.GetOrAddComponent<BulletCollision>().Damage = Damage;
+                gameObject.GetComponent<BulletCollision>().Explosive = Explosive;
+                gameObject.GetComponent<BulletCollision>().enemyLayer = whatIsPlayer;
 
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
-            // rb.AddForce(transform.up * 1f, ForceMode.Impulse);
-            Destroy(gameObject, 5f);
-
-
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
+                if (Explosive)
+                {
+                    rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+                    
+                }
+                Destroy(gameObject, 8f);
+            }
+            
             ///End of attack code
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -129,15 +148,36 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0) DestroyEnemy();
     }
-    private void DestroyEnemy()
+    public void DestroyEnemy()
     {
-        Destroy(gameObject);
-
-        for (int i = 0; i < new System.Random().Next(min, max); i++)
+        if (gameObject && isSlimeSplit)
         {
-            GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-            var currentRB = currentCoin.GetComponent<Rigidbody>();
-            currentRB.AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Instantiate(slimePrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+            
+        } 
+        else 
+        {
+            Destroy(gameObject);
+
+            for (int i = 0; i < new System.Random().Next(min, max); i++)
+            {
+                GameObject currentCoin = Instantiate(coin, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                currentCoin.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            }
+
+            if (Random.Range(0, 10) == 0)
+            {
+                GameObject currentHeart = Instantiate(heart, transform.position, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                currentHeart.GetComponent<Rigidbody>().AddForce((Random.Range(0, 20000) - 10000f) / 100f, Random.Range(0, 20000) / 100f, (Random.Range(0, 20000) - 10000f) / 100f);
+            }
         }
     }
 

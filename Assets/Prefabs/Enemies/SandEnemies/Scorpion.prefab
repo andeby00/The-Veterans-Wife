@@ -166,13 +166,16 @@ MonoBehaviour:
   attackPoint: {fileID: 5870059881097790142}
   timeBetweenAttacks: 1.5
   projectile: {fileID: 192724064413237258, guid: a4be2b0d48f92454ba00921dc98f4698, type: 3}
-  shootForce: 20
+  shootForce: 28
   Explosive: 0
+  Damage: 30
   sightRange: 2000
-  attackRange: 5
+  attackRange: 20
+  isMelee: 0
   coin: {fileID: 9035697765521514754, guid: 88d565d6596efee44900e4be913b96e1, type: 3}
   min: 2
   max: 4
+  heart: {fileID: 9035697765521514754, guid: 2e72d6269154b1d4b98295bceb683242, type: 3}
 --- !u!65 &1709673511219432607
 BoxCollider:
   m_ObjectHideFlags: 0

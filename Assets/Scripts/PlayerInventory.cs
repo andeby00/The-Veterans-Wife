@@ -13,12 +13,14 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] Transform gunContainer;
         
     //[SerializeField] AudioSource coindSound;
+    //[SerializeField] AudioSource healthdSound;
     
     [SerializeField] float health = 1000;
     [SerializeField] int coins = 0;
 
     private void Start()
     {
+        health = GlobalInventory.Instance.health;
         healthDisplay.SetText(health + "");
         
         coins = GlobalInventory.Instance.coins;
@@ -49,17 +51,21 @@ public class PlayerInventory : MonoBehaviour
             coinsText.SetText(coins + "");
             //coindSound.Play();
         }
+        
+        if (other.gameObject.transform.CompareTag("Heart"))
+        {
+            Destroy(other.gameObject);
+            health += 100;
+            healthDisplay.SetText(health + "");
+            //healthdsound.Play();
+        }
     }
 
     private void Update()
     {
-
-        if (health < 0)
+        if (health <= 0)
         {
-            
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("Menu");
+            Die();
         }
         
         RaycastHit hit;
@@ -124,10 +130,18 @@ public class PlayerInventory : MonoBehaviour
         health -= damage;
         healthDisplay.SetText(health + "");
     }
+
+    public void Die()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("Menu");
+    }
     
     public void SavePlayer()
     {
         GlobalInventory.Instance.coins = coins;
+        GlobalInventory.Instance.health = health;
         gunContainer.GetChild(0).SetParent(GlobalInventory.Instance.gunContainer);
     }
 }

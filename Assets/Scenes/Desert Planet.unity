@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 120479689}
-  m_IndirectSpecularColor: {r: 0.2988685, g: 0.30772528, b: 0.14076874, a: 1}
+  m_IndirectSpecularColor: {r: 0.34630108, g: 0.356606, b: 0.16735321, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2187,8 +2187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawningArea: {fileID: 362853934}
-  dude: {fileID: 1709673511219432600, guid: 840e5719a957cc0418f900a4987b7637, type: 3}
-  brute: {fileID: 1709673511219432600, guid: 840e5719a957cc0418f900a4987b7637, type: 3}
+  dude: {fileID: 1709673511219432600, guid: f1ed69abf9250554bb913c023dfba004, type: 3}
+  rangedDude: {fileID: 1709673511219432600, guid: 840e5719a957cc0418f900a4987b7637, type: 3}
+  brute: {fileID: 5069506435427686055, guid: dd354b12cc8fd7b42b34f90737d26439, type: 3}
   player: {fileID: 212999750}
   enemies: {fileID: 726668341}
   maxNoEnemeis: 100
